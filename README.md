@@ -37,7 +37,7 @@ cat id_ed25519.pub
 
 El resultado lo copias y lo agregas en la configuración SSH de tu perfil de github.com
 
-**clonación de repositorio en linux**
+**clonación de repositorio en linux si usas SSH**
 
 ```shell
 git clone git@github.com:alfMG-bit/make_my_documentation.git
@@ -52,12 +52,35 @@ git clone https://github.com/alfMG-bit/make_my_documentation.git
 ```
 
 ---
-## 🔗 Crear su rama en git
+
+## Ramas (Branches)
 ---
+### 🔗 División de ramas
+
+| Rama/Persona           | Alan Moreno | Alfredo | Alan Martinez | Alfonso | Job |
+| ---------------------- | ----------- | ------- | ------------- | ------- | --- |
+| **Base de Datos**      |             | ✅       |               | ✅       |     |
+| **Tailwind/Views**     |             |         | ✅             |         | ✅   |
+| **Models/Controllers** | ✅           |         |               |         |     |
+| **main**               | ✅           | ✅       | ✅             | ✅       | ✅   |
+
+### 👤 ¿Quién va a crear cada rama?
+
+| 👤Encargado       | 🔗Rama             | 🏷️Nombre que debe de llevar |
+| ----------------- | ------------------ | ---------------------------- |
+| **Alfonso**       | Base de datos      | **database**                 |
+| **Alan Martinez** | Views              | **views**                    |
+| **Alan Grajeda**  | Models/Controllers | **models_controllers**       |
+
+### 🔨 Crear su rama en git
+
 ```shell
+cd make_my_documentation
 git checkout -b "Nombre_de_tu_rama"
 git add .
 git commit -m "mensaje"
-git push -u origin Nombre_de_tu rama
+git push -u origin Nombre_de_tu_rama
 ```
+
 ---
+
