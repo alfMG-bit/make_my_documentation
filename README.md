@@ -1,5 +1,11 @@
 # (NOMBRE DE LA APP)
 ---
+## Recursos:
+
+**Videos para hacer un crud en PHP:** https://www.youtube.com/playlist?list=PL-6S8_azQ-MpM0BaKz0VPtnczB6MiOflq
+
+---
+
 ## 🖥️ Configuración básica git
 ---
 ```shell
@@ -83,4 +89,6 @@ git push -u origin Nombre_de_tu_rama
 ```
 
 ---
+
+# Instalación de PHP, Composer y Laravel
 
