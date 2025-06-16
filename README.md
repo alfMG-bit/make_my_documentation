@@ -31,7 +31,7 @@ ssh-add ~/.ssh/id_ed25519
 **Ahora simplemente accedes desde root ejecutando este comando**
 
 ```shell
-cd .shh
+cd .ssh
 cat id_ed25519.pub
 ```
 
