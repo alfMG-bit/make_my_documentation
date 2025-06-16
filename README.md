@@ -89,29 +89,6 @@ git push -u origin Nombre_de_tu_rama
 ```
 
 ---
-
-# Instalación de PHP, Composer y Laravel
-----
-## Windows
-
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://php.new/install/windows/8.4'))
-```
-
-## Linux
-
-```shell
-/bin/bash -c "$(curl -fsSL https://php.new/install/linux/8.4)"
-```
-
-Estos comandos instalaran **automáticamente** las tres herramientas. Despues de instalar estas herramientas, **debes reiniciar tu terminal (cerrar la ventana)**.
-
-### Instalar laravel por vía composer
-
-```powershell
-composer global require laravel/installer
-```
-
 # Instalación de MySQL
 
 ## Windows
@@ -128,6 +105,27 @@ Para Xampp (un gestor de servidor local) necesitaran ir a https://www.apachefrie
 
 **Para continuar con la instalación de Xampp, consulten a Alan**
 
+# Instalación de PHP, Composer y Laravel
+----
+## Windows
+
+Vas a ir a esta página e instalar composer https://getcomposer.org/
+
+## Linux
+
+```shell
+/bin/bash -c "$(curl -fsSL https://php.new/install/linux/8.4)"
+```
+
+Estos comandos instalaran **automáticamente** las tres herramientas. Despues de instalar estas herramientas, **debes reiniciar tu terminal (cerrar la ventana)**.
+
+### Instalar laravel por vía composer
+
+```powershell
+composer global require laravel/installer
+```
+
+---
 # Pasos de desarrollo
 
 ```mermaid
