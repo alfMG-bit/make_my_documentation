@@ -23,7 +23,7 @@ ssh-keygen -t ed25519 -C "tu_correo@example.com"
 ```
 
 ```shell
-$ eval "$(ssh-agent -s)"
+eval "$(ssh-agent -s)"
 > Agent pid 59566
 ssh-add ~/.ssh/id_ed25519
 ```
