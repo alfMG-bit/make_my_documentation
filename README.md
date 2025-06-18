@@ -135,5 +135,32 @@ gantt
     section Primer Fase
         🧪Investigación :a1, 2025-06-16, 7d
         Desarrollo    :a2, 2025-06-23, 20d
-
 ```
+
+# Requierimientos técnicos
+---
+
+## Objetivo
+
+Crear una aplicación de inteligencia artificial que ayude a los desarrolladores y equipos de scrum a desarrollar la documentación de un proyecto de manera rápida, eficiente y con diagramas.
+
+## Alcance
+
+El proyecto es una inteligencia artificial, un chat al cual se le pasarán archivos de código que este leerá. El chat permite que el usuario haga peticiones especializadas.
+
+## Arquitectura del sistema
+
+```mermaid
+graph TB
+	a("👤 Usuario")
+	subgraph MVC
+		b1("🖥️View")
+		b2("⚙️Controller")
+		b3("🔮Model")
+	end
+	c("💾 Data Base")
+
+	a-->MVC
+	b1-->b2-->b3-->c
+```
+
