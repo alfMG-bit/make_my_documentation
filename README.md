@@ -163,4 +163,54 @@ graph TB
 	a-->MVC
 	b1-->b2-->b3-->c
 ```
+```mermaid
+erDiagram
+    USERS ||--o{ PROJECT_USERS : collaborates
+    PROJECTS ||--o{ PROJECT_USERS : shared_with
+    USERS ||--o{ PROJECTS : owns
 
+    PROJECTS ||--o{ INPUTS : has_inputs
+    PROJECTS ||--o{ OUTPUTS : has_outputs
+
+    USERS {
+        int id PK
+        string username
+        string email
+        string password_hash
+        datetime created_at
+    }
+
+    PROJECTS {
+        int id PK
+        int owner_id FK "references USERS(id)"
+        string name
+        text description
+        datetime created_at
+    }
+
+    PROJECT_USERS {
+        int id PK
+        int user_id FK "references USERS(id)"
+        int project_id FK "references PROJECTS(id)"
+        string role "viewer/editor"
+        datetime added_at
+    }
+
+    INPUTS {
+        int id PK
+        int project_id FK "references PROJECTS(id)"
+        string filename
+        string file_type "html/css/js/py"
+        string file_path
+        datetime uploaded_at
+    }
+
+    OUTPUTS {
+        int id PK
+        int project_id FK "references PROJECTS(id)"
+        string doc_type "pdf/html/md"
+        string file_path
+        datetime generated_at
+    }
+
+```
