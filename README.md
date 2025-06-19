@@ -163,6 +163,9 @@ graph TB
 	a-->MVC
 	b1-->b2-->b3-->c
 ```
+
+## 💽 Base de Datos
+
 ```mermaid
 erDiagram
     USERS ||--o{ PROJECT_USERS : collaborates
@@ -214,3 +217,67 @@ erDiagram
     }
 
 ```
+
+# 🐘Para iniciar en Laravel
+---
+## Una vez clonado el repositorio
+
+Cuando ya clonaste el repositorio del proyecto, tienes que hacer una serie de pasos para que este comience a funcionar de manera adecuada.
+
+Cuando clonas un repositorio de un proyecto laravel, este por defecto trae un archivo .gitignore, en este archivo se ignoran todas las dependencias de composer y node.JS por cuestiones de almacenamiento, pues si se subiera todo ello, tardaría mucho y además sería muy pesado clonar
+
+**Dentro del repositorio se deben ejecutar los siguiente comandos**
+
+```shell
+composer install
+```
+
+```shell
+cp .env.example .env
+```
+
+```shell
+php artisan key:generate
+```
+
+En el archivo ``.env`` copiaran el archivo ``.env.example`` y en la sección de base de datos pondrán esta porción de datos:
+
+```shell
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nombre_de_tu_bd
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
+```
+
+## Ubicación del proyecto
+
+### 🪟 **En Windows**
+
+Para hacer funcionar tu proyecto, clona el repositorio o mueve el ya clonado a la siguiente ruta:
+
+```powershell
+C:/Xampp/htdocs
+```
+
+### 🐧 **En Linux**
+
+En linux bastara con correr el comando en la terminal, dentro de la ruta del proyecto ``php artisan serve``
+
+```shell
+cd proyecto_laravel
+```
+
+Este comando es para hacer las tablas en la **base de datos**.
+
+```shell
+php artisan migrate
+```
+
+Con este comando, instancias el servidor de **PHP**
+
+```shell
+php artisan serve
+```
+
