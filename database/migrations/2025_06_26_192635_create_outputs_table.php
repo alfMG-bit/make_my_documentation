@@ -13,13 +13,7 @@ return new class extends Migration
     {
         Schema::create('outputs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('project_id');
-            $table->foreign('project_id')
-            ->constrained()
-            ->references('id')
-            ->on('projects')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
+            $table->foreignId('project_id');
             $table->string('doc_type');
             $table->string('file_path');
             $table->timestamps();

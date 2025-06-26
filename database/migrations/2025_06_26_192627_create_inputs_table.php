@@ -13,13 +13,10 @@ return new class extends Migration
     {
         Schema::create('inputs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('project_id');
-            $table->foreign('project_id')
-                    ->constrained()
-                    ->references('id')
-                    ->on('projects')
-                    ->onUpdate('cascade')
-                    ->onDelete('cascade');
+            $table->foreignId('user_id')
+            ->constrained()
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->string('filename');
             $table->string('file_type');
             $table->string('file_path');
