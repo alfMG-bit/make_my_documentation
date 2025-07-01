@@ -18,13 +18,10 @@
         <!-- Formulario -->
         <div class="flex flex-col justify-center items-center px-8 py-12">
             <img src="{{ asset('images/icon.png') }}" alt="Logo" class="h-20 mb-4">
-            <h2 class="text-2xl font-semibold mb-8">Crear cuenta</h2>
+            <h2 class="text-2xl font-semibold mb-8">¡Bienvenido!</h2>
+            <h3 class="text-2xl font-semibold mb-8">Iniciar sesión</h3>
 
             <form action="#" method="POST" class="w-full max-w-sm space-y-5">
-                <div>
-                    <label for="name" class="block text-sm font-medium mb-1">Nombre</label>
-                    <input type="text" id="name" name="name" placeholder="Nombre" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
 
                 <div>
                     <label for="email" class="block text-sm font-medium mb-1">Email</label>
@@ -41,14 +38,13 @@
                     <label for="terms">I agree to the <a href="#" class="text-blue-600 underline">terms & policy</a></label>
                 </div>
 
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Registrar</button>
+                <button type="#" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Iniciar sesión</button>
             </form>
         </div>
-
-        <!-- Imagen derecha -->
         <div class="hidden md:block">
             <img src="{{ asset('images/panel.png') }}" alt="Code side" class="object-cover w-full h-full">
         </div>
     </div>
 </body>
 </html>
+
