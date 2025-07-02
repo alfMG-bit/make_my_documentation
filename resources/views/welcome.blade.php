@@ -15,9 +15,18 @@
 </head>
 <body class="bg-gray-100 text-gray-800">
     <!-- Navbar -->
-    <header class="flex items-center justify-between px-8 py-4 bg-white shadow">
-        <img src="{{ asset('images/icon.png') }}" alt="Logo" class="h-14">
-        <a href="/register" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Registrarme</a>
+    <header class="flex flex-col md:flex-row items-center justify-between px-8 py-2 bg-white bg-opacity-10 backdrop-blur-md shadow-md border border-white border-opacity-30">
+        <div class="flex items-center gap-6 w-full md:w-auto">
+            <img src="{{ asset('images/icon.png') }}" alt="Logo" class="h-14">
+            <nav class="hidden md:flex gap-3 flex-nowrap text-sm font-medium items-center">
+                <a href="#" class="bg-blue-100 text-blue-800 px-10 py-1.5 rounded-full shadow hover:bg-blue-300 hover:scale-105 transition transform duration-200">FAQ</a>
+                <a href="#" class="bg-blue-100 text-blue-800 px-10 py-1.5 rounded-full shadow hover:bg-blue-300 hover:scale-105 transition transform duration-200">Política y Privacidad</a>
+                <a href="#" class="bg-blue-100 text-blue-800 px-10 py-1.5 rounded-full shadow hover:bg-blue-300 hover:scale-105 transition transform duration-200">Sobre nosotros</a>
+            </nav>
+        </div>
+        <div class="w-full flex justify-center md:justify-end mt-4 md:mt-0">
+            <a href="/register" class="bg-blue-100 text-blue-800 px-12 py-1.5 rounded-full shadow hover:bg-blue-300 hover:scale-105 transition transform duration-200">Registrarme</a>
+        </div>
     </header>
 
     <!-- Hero Section -->
@@ -33,7 +42,7 @@
                 Somos una herramienta impulsada por Inteligencia Artificial que te ayuda a complementar y/o darte una guía para tu documentación de desarrollo. También podrás tener la opción de crear tus diagramas de todo sin necesidad de otros softwares donde solo puedas crear un solo tipo en específico.
             </p>
             <p class="mt-2 text-sm">Inicia ahora e impulsa tu potencial de la documentación.</p>
-            <a href="login" class="mt-4 w-fit px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Iniciar ahora</a>
+            <a href="login" class="mt-4 w-fit bg-blue-100 text-blue-800 px-14 py-1.5 rounded-full shadow hover:bg-blue-300 hover:scale-105 transition transform duration-200">Iniciar ahora</a>
             <div class="mt-6 text-sm font-semibold flex gap-4">
                 <span>Inteligencia Artificial</span>
                 <span>Creación de diagramas</span>
