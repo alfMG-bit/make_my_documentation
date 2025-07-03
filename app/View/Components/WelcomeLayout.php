@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class MakeLayout extends Component
+class WelcomeLayout extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class MakeLayout extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('layouts.make-layout');
+        return view('layouts.welcome-layout');
     }
 }

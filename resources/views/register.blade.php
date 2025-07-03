@@ -1,19 +1,4 @@
-<!-- resources/views/register.blade.php -->
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear cuenta - MMD</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
-</head>
-<body class="bg-white text-gray-800">
+<x-WelcomeLayout>
     <div class="min-h-screen grid grid-cols-1 md:grid-cols-2">
         <!-- Formulario -->
         <div class="flex flex-col justify-center items-center px-8 py-12">
@@ -55,5 +40,4 @@
             <img src="{{ asset('images/panel.png') }}" alt="Code side" class="object-cover w-full h-full rounded-xl">
         </div>
     </div>
-</body>
-</html>
+</x-WelcomeLayout>
