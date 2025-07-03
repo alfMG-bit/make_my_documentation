@@ -1,41 +1,58 @@
+<!-- resources/views/register.blade.php -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>Crear cuenta</title>
+    <title>Crear cuenta - MMD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl flex flex-col md:flex-row">
-        <!-- Imagen -->
-        <div class="md:w-1/2 bg-blue-500 flex items-center justify-center p-8">
-            <img src="{{ asset('img/register.png') }}" alt="Registro" class="w-3/4">
+<body class="bg-white text-gray-800">
+    <div class="min-h-screen grid grid-cols-1 md:grid-cols-2">
+        <!-- Formulario -->
+        <div class="flex flex-col justify-center items-center px-8 py-12">
+            <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl shadow-md p-8 w-full max-w-md border border-white border-opacity-30">
+                <div class="flex flex-col items-center">
+                    <img src="{{ asset('images/icon.png') }}" alt="Logo" class="h-20 mb-4">
+                    <h2 class="text-2xl font-semibold mb-4">Make My Documentation</h2>
+                    <h2 class="text-2xl font-semibold mb-4">Crear cuenta</h2>
+                </div>
+
+                <form action="#" method="POST" class="space-y-5">
+                    <div>
+                        <label for="name" class="block text-sm font-medium mb-1">Nombre</label>
+                        <input type="text" id="name" name="name" placeholder="Nombre" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-1">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Correo" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+                    <div>
+                        <label for="password" class="block text-sm font-medium mb-1">Contraseña</label>
+                        <input type="password" id="password" name="password" placeholder="Contraseña" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+                    <div class="flex items-center text-sm">
+                        <input type="checkbox" id="terms" class="mr-2">
+                        <label for="terms">I agree to the <a href="#" class="text-blue-600 underline">terms & policy</a></label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">Registrar</button>
+                </form>
+            </div>
         </div>
 
-        <!-- Formulario -->
-        <div class="md:w-1/2 p-8">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Crear cuenta</h2>
-            <form method="POST" action="">
-                @csrf
-                <div class="mb-4">
-                    <label class="block text-gray-700 font-medium mb-2">Nombre</label>
-                    <input type="text" name="name" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 font-medium mb-2">Email</label>
-                    <input type="email" name="email" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 font-medium mb-2">Contraseña</label>
-                    <input type="password" name="password" required class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                </div>
-                <div class="mb-4 flex items-center">
-                    <input type="checkbox" id="terms" class="mr-2">
-                    <label for="terms" class="text-sm text-gray-600">Acepto los términos y condiciones</label>
-                </div>
-                <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">Registrar</button>
-            </form>
+        <!-- Imagen derecha -->
+        <div class="hidden md:block p-4">
+            <img src="{{ asset('images/panel.png') }}" alt="Code side" class="object-cover w-full h-full rounded-xl">
         </div>
     </div>
 </body>
