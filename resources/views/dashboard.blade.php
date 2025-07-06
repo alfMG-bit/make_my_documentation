@@ -74,7 +74,10 @@
 
     <!-- Opciones -->
     <div class="space-y-2 pt-4">
-      <a href="#" class="block px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">Logout</a>
+      <form action="{{ route('logout.destroy') }}" method="post">
+        @csrf
+        <input class="block px-3 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 w-full text-start cursor-pointer" type="submit" value="Logout" name="logout">
+      </form>
       <button id="toggleDark" class="flex items-center gap-2 px-3 py-2 rounded bg-gray-200 dark:bg-gray-700 w-full justify-center">
         <span id="modeLabel">Light mode</span>
         <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
