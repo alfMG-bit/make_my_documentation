@@ -9,7 +9,8 @@
                     <p class="text-sm mb-8 text-center">Ingresa tus datos para iniciar sesión.</p>
                 </div>
 
-                <form action="#" method="POST" class="space-y-5">
+                <form action="{{ route('login.store') }}" method="POST" class="space-y-5">
+                    @csrf
                     <div>
                         <label for="email" class="block text-sm font-medium mb-1">Email</label>
                         <input type="email" id="email" name="email" placeholder="Ingresa tu Email" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
