@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('welcome');
+})->name('welcome')->middleware('guest');
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
@@ -15,11 +15,11 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/login', [AuthenticatedUserController::class, 'store'])->name('login.store');
 });
 
-Route::middleware(['auth'])->group(function() {
-    Route::get('/dashboard', function () {
+Route::get('/dashboard', function () {
         return view('dashboard');
-    })->name('dashboard');
+    })->name('dashboard')->middleware(['auth', 'verified']);
 
+Route::middleware(['auth', 'verified'])->group(function() {
     Route::post('/logout', [AuthenticatedUserController::class, 'destroy'])
     ->name('logout.destroy');
 });
