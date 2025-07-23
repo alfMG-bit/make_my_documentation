@@ -93,6 +93,25 @@
         chatArea.appendChild(bubble);
         messageInput.value = '';
         messageInput.style.height = '2.5rem';
+
+        fetch("https://openrouter.ai/api/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Authorization": "Bearer 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",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            "model": "deepseek/deepseek-r1-0528-qwen3-8b:free",
+            "messages": [
+              {
+                "role": "user",
+                "content": text
+              }
+            ]
+          })
+        }).then(response => response.json()).then(data => {
+          console.log(data);
+        })
       }
     }
 
