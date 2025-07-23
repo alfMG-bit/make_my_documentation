@@ -22,7 +22,7 @@
         <textarea id="messageInput" placeholder="Escribe un mensaje" class="flex-1 bg-transparent outline-none resize-none h-10 max-h-32" rows="1"></textarea>
 
         <!-- Botón enviar -->
-        <button id="sendMessage" class="ml-2 text-blue-600 font-semibold">Enviar</button>
+        <button id="sendMessage" class="ml-2 text-blue-600 font-semibold cursor-pointer">Enviar</button>
       </div>
     </div>
   </div>

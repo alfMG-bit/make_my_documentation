@@ -36,25 +36,8 @@
     {{ $slot }}
 
   <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
-    // API KEY: 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
-    fetch("https://openrouter.ai/api/v1/chat/completions", {
-        method: "POST",
-        headers: {
-            "Authorization": "Bearer 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",
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            "model": "deepseek/deepseek-r1-0528-qwen3-8b:free",
-            "messages": [
-            {
-                "role": "user",
-                "content": "What is the meaning of life?"
-            }
-            ]
-        })
-    });
-
     const drawer = document.getElementById('drawerMenu');
     const overlay = document.getElementById('drawerOverlay');
     const openDrawer = document.getElementById('openDrawer');
@@ -65,6 +48,9 @@
     const fileInput = document.getElementById('fileInput');
     const newChatBtn = document.getElementById('newChatBtn');
     const chatList = document.getElementById('chatList');
+
+    // Variable saves deepseek api key
+    const api_key = "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";
 
     openDrawer.addEventListener('click', () => {
       drawer.classList.remove('-translate-x-full');
@@ -97,7 +83,7 @@
         fetch("https://openrouter.ai/api/v1/chat/completions", {
           method: "POST",
           headers: {
-            "Authorization": "Bearer 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",
+            "Authorization": "Bearer " + api_key,
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
@@ -111,6 +97,10 @@
           })
         }).then(response => response.json()).then(data => {
           console.log(data);
+          const bubble = document.createElement('div');
+          bubble.className = 'w-[100%] py-7 bg-gray-400';
+          bubble.innerHTML = marked.parse(data.choices[0].message.content);
+          chatArea.appendChild(bubble);
         })
       }
     }
