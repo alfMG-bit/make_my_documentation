@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthenticatedUserController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Livewire\Test;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,3 +24,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::post('/logout', [AuthenticatedUserController::class, 'destroy'])
     ->name('logout.destroy');
 });
+
+Route::get('/test', function () {
+    return view("test");
+})->name("test");

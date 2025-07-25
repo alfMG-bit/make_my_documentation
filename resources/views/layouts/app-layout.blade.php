@@ -50,7 +50,7 @@
     const chatList = document.getElementById('chatList');
 
     // Variable saves deepseek api key
-    const api_key = "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";
+    const api_key = "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";
 
     openDrawer.addEventListener('click', () => {
       drawer.classList.remove('-translate-x-full');
