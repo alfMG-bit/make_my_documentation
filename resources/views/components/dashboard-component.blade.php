@@ -100,8 +100,8 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src=" https://cdn.jsdelivr.net/npm/mermaid@11.9.0/dist/mermaid.min.js "></script>
   <script>
-  mermaid.initialize({ startOnLoad: false }); // No auto-render
-</script>
+    mermaid.initialize({ startOnLoad: false }); // No auto-render
+  </script>
   <script>
     const drawer = document.getElementById('drawerMenu');
     const overlay = document.getElementById('drawerOverlay');
@@ -115,12 +115,17 @@
     const chatList = document.getElementById('chatList');
 
     // Variable saves deepseek api key
-    const api_key = "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";
+    const api_key = "{{ $slot ?? '' }}";
+
+    // Arreglo que guardara el contexto del chat
+    let context = [
+      {role: "system", content: "Eres un asistente de chat que ayuda principalmente a responder preguntas de programación y documenta código. Todas tus respuestas son en markdown, empezando por headers h1 hasta h4"}
+    ];
 
     openDrawer.addEventListener('click', () => {
       drawer.classList.remove('-translate-x-full');
       overlay.classList.remove('hidden');
-      overlay.classList.add('opacity-100');
+      overlay.classList.add('opacity-50');
     });
 
     function closeDrawer() {
@@ -138,10 +143,22 @@
     function enviarMensaje() {
       const text = messageInput.value.trim();
       if (text !== '') {
+        const loadingBubble = document.createElement('div');
+        loadingBubble.className = 'loadingBox flex justify-center items-center';
+        loadingBubble.innerHTML = '<h3 class="text-2xl font-black">Cargando...</div>';
+        
         const bubble = document.createElement('div');
         bubble.className = 'bg-blue-600 text-white px-4 py-2 rounded w-fit max-w-xs hover:scale-105 transform transition';
         bubble.textContent = text;
         chatArea.appendChild(bubble);
+        chatArea.appendChild(loadingBubble);
+
+        //Agregamos el mensaje al contexto
+        context.push({
+          role: 'user',
+          content: text
+        });
+
         messageInput.value = '';
         messageInput.style.height = '2.5rem';
 
@@ -153,19 +170,22 @@
           },
           body: JSON.stringify({
             "model": "deepseek/deepseek-r1-0528:free",
-            "messages": [
-              {
-                "role": "user",
-                "content": text
-              }
-            ]
+            "messages": context
           })
         }).then(response => response.json()).then(data => {
           console.log(data);
+          loadingBubble.remove();
           const bubble = document.createElement('div');
-          bubble.className = 'chat-bot w-[100%] py-7 bg-gray-400';
-          bubble.innerHTML = marked.parse(data.choices[0].message.content);
+          bubble.className = 'chat-bot w-[100%] py-2 px-4 bg-gray-400';
+          let responseText = data.choices[0].message.content;
+          bubble.innerHTML = marked.parse(responseText);
           chatArea.appendChild(bubble);
+
+          //Agregamos la respuesta de chat al contexto
+          context.push({
+            role: 'assistant',
+            content: responseText
+          });
 
           // Busca los bloques Mermaid en el nuevo contenido
           const mermaidBlocks = bubble.querySelectorAll('pre > code.language-mermaid');

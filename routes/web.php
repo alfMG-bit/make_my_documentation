@@ -17,8 +17,9 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard')->middleware(['auth', 'verified']);
+    $api = env('API_KEY_CHAT');    
+    return view('dashboard', ['api' => $api]);
+})->name('dashboard')->middleware(['auth', 'verified']);
 
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::post('/logout', [AuthenticatedUserController::class, 'destroy'])
