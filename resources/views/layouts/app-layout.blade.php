@@ -11,6 +11,7 @@
       font-family: 'Poppins', sans-serif;
     }
   </style>
+  @livewireStyles
 </head>
 <body class="bg-gray-100 text-gray-800">
   <div class="flex flex-col h-screen overflow-hidden">
@@ -34,5 +35,7 @@
 
     <!-- HERE MUST BE COMPONENTS -->
     {{ $slot }}
+
+    @livewireScripts
 </body>
 </html>

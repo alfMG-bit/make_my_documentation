@@ -9,6 +9,5 @@
 </head>
 <body>
     @livewire('test')
-    
 </body>
 </html>
